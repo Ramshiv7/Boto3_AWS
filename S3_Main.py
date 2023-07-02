@@ -34,6 +34,6 @@ s3.download_file(BUCKET_NAME, "index.html", "hello.html")
 objectResponse = s3.list_objects_v2(Bucket=BUCKET_NAME)
 
 for objectDetails in objectResponse["Contents"]:
-    print(objectDetails["Name"])
+    print(objectDetails["Key"])
 
 
