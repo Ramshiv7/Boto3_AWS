@@ -13,7 +13,7 @@ BUCKET_NAME = bucketResponse["Location"].replace("/", "")
 
 # Upload Files to the S3 Bucket
 
-filesPath = "/home/Documents/sampleTree/"
+filesPath = "sampleTree/"
 
 localFiles = [files for (root, direc, files) in os.walk(filesPath)]
 
@@ -31,18 +31,10 @@ s3.download_file(BUCKET_NAME, "index.html", "hello.html")
 
 # List Files From S3 Bucket
 
-# objectResponse = s3.list_objects_v2(Bucket=BUCKET_NAME)
+objectResponse = s3.list_objects_v2(Bucket=BUCKET_NAME)
 
-# # print(objectResponse)
-
-# for object in objectResponse["Contents"]:
-#     print(object)
-
-
-# s3 = boto3.client("s3")
-
-# with open('new_file.html','wb') as data:
-#     s3.download_fileobj(BUCKET_NAME,'hi.html', data)
+for objectDetails in objectResponse["Contents"]:
+    print(objectDetails["Name"])
 
 
 # BONUS
