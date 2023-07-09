@@ -14,7 +14,7 @@ response = dynamodb.create_table(
     ],
     KeySchema=[
         {"AttributeName": "user", "KeyType": "HASH"},
-        {"AttributeName": "count", "KeyType": "RANGE"},
+      #  {"AttributeName": "count", "KeyType": "RANGE"},
     ],
     BillingMode="PAY_PER_REQUEST",
 )
